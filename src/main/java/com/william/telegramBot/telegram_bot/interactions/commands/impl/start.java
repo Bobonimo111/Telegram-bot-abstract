@@ -24,7 +24,7 @@ public class start implements IInterraction<CommandsContext> {
 
     @Override
     public void action() throws InteractionException {
-
+        this.telegramClientService.sendMessage(this.makeMenu());
     }
 
     @Override
@@ -43,17 +43,14 @@ public class start implements IInterraction<CommandsContext> {
     }
 
     private ISendMessageBase makeMenu(){
-        InlineKeyboardButton listGastos = new InlineKeyboardButton();
-        listGastos.setText("gastos");
-        listGastos.setCallbackData("MENU_LIST_GASTOS");
+        InlineKeyboardButton testeBTN = new InlineKeyboardButton();
+        testeBTN.setText("teste");
+        testeBTN.setCallbackData("DATA-TESTE");
 
-        InlineKeyboardButton listGanhos =  new InlineKeyboardButton();
-        listGanhos.setText("ganhos");
-        listGanhos.setCallbackData("MENU_LIST_GANHOS");
 
         SendMessageReplyMarkup message = new SendMessageReplyMarkup();
         Replymarkup replymarkup =  Replymarkup.builder()
-                .inlineKeyboard(List.of(List.of(listGanhos,listGastos)))
+                .inlineKeyboard(List.of(List.of(testeBTN)))
                 .build();
 
         message.setChatId(this.context.chatId());

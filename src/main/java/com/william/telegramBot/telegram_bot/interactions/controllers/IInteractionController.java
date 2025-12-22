@@ -1,4 +1,4 @@
-package com.william.telegramBot.telegram_bot.controllers;
+package com.william.telegramBot.telegram_bot.interactions.controllers;
 
 import com.william.telegramBot.telegram_bot.dto.UpdateDTO;
 import com.william.telegramBot.telegram_bot.exception.InteractionException;

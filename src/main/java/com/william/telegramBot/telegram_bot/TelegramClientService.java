@@ -24,8 +24,8 @@ public class TelegramClientService {
         return telegramBotClient.getMe(this.token);
     }
 
-    public GetUpdatesDTO getUpdates() {
-        return telegramBotClient.getUpdates(this.token);
+    public GetUpdatesDTO getUpdates(Long  offset, Integer timeout) {
+        return telegramBotClient.getUpdates(this.token, offset, timeout);
     }
 
     public void sendMessage(Long chatId,String text){

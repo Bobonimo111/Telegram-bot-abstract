@@ -31,7 +31,7 @@ public class CommandsContext implements IInterractionContext<IInterraction<Comma
     }
 
 
-    public String text() {
+    public String message() {
         return update.message().text();
     }
 

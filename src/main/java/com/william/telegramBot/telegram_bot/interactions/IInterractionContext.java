@@ -12,7 +12,7 @@ public interface IInterractionContext<T> {
 
     public T interraction();
 
-    public String text() ;
+    public String message() ;
 
     public Long getUserTelegramId();
 

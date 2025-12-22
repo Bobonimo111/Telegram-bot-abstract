@@ -1,13 +1,11 @@
 package com.william.telegramBot.telegram_bot;
 
-import com.william.telegramBot.telegram_bot.controllers.IInteractionController;
-import com.william.telegramBot.telegram_bot.controllers.InteractionControllerFactory;
+import com.william.telegramBot.telegram_bot.interactions.controllers.IInteractionController;
+import com.william.telegramBot.telegram_bot.interactions.controllers.InteractionControllerFactory;
 import com.william.telegramBot.telegram_bot.dto.UpdateDTO;
 import com.william.telegramBot.telegram_bot.exception.InteractionException;
 import com.william.telegramBot.telegram_bot.handler.InteractionExceptionHandler;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class TelegramMessageBotService {
