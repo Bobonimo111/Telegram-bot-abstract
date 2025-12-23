@@ -1,30 +1,24 @@
 package com.william.telegramBot.telegram_bot.interactions.commands.impl;
 
-import com.william.telegramBot.telegram_bot.TelegramClientService;
 import com.william.telegramBot.telegram_bot.dto.obj.ISendMessageBase;
 import com.william.telegramBot.telegram_bot.dto.obj.InlineKeyboardButton;
 import com.william.telegramBot.telegram_bot.dto.obj.Replymarkup;
 import com.william.telegramBot.telegram_bot.dto.obj.SendMessageReplyMarkup;
 import com.william.telegramBot.telegram_bot.exception.InteractionException;
-import com.william.telegramBot.telegram_bot.interactions.IInterraction;
+import com.william.telegramBot.telegram_bot.interactions.IInteraction;
 import com.william.telegramBot.telegram_bot.interactions.commands.CommandsContext;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @Component
-public class start implements IInterraction<CommandsContext> {
+public class start implements IInteraction<CommandsContext> {
 
-    private final TelegramClientService telegramClientService;
     private CommandsContext context;
 
-    public start(TelegramClientService telegramClientService) {
-        this.telegramClientService = telegramClientService;
-    }
-
     @Override
-    public void action() throws InteractionException {
-        this.telegramClientService.sendMessage(this.makeMenu());
+    public ISendMessageBase action() throws InteractionException {
+        return this.makeMenu();
     }
 
     @Override

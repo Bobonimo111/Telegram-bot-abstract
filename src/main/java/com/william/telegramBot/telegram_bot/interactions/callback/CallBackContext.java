@@ -1,21 +1,20 @@
 package com.william.telegramBot.telegram_bot.interactions.callback;
 
-import com.william.telegramBot.telegram_bot.interactions.IInterraction;
-import com.william.telegramBot.telegram_bot.interactions.IInterractionContext;
+import com.william.telegramBot.telegram_bot.interactions.IInteraction;
+import com.william.telegramBot.telegram_bot.interactions.IInteractionContext;
 import com.william.telegramBot.telegram_bot.dto.MessageEntityDto;
 import com.william.telegramBot.telegram_bot.dto.UpdateDTO;
-import com.william.telegramBot.telegram_bot.interactions.commands.CommandsContext;
 
 import java.util.List;
 
 
 // A estrutura base de um callback é diferente ele segue o padrão update().callback() e não update.message()
-public class CallBackContext implements IInterractionContext<IInterraction<CallBackContext>> {
+public class CallBackContext implements IInteractionContext<IInteraction<CallBackContext>> {
 
     private final UpdateDTO update;
-    private final IInterraction<CallBackContext> interaction;
+    private final IInteraction<CallBackContext> interaction;
 
-    public CallBackContext(UpdateDTO update, IInterraction<CallBackContext> interaction) {
+    public CallBackContext(UpdateDTO update, IInteraction<CallBackContext> interaction) {
         this.update = update;
         this.interaction = interaction;
     }
@@ -31,7 +30,7 @@ public class CallBackContext implements IInterractionContext<IInterraction<CallB
     }
 
     @Override
-    public IInterraction<CallBackContext> interraction() {
+    public IInteraction<CallBackContext> interraction() {
         return this.interaction;
     }
 

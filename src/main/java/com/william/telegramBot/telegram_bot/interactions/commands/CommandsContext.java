@@ -1,18 +1,18 @@
 package com.william.telegramBot.telegram_bot.interactions.commands;
 
 
-import com.william.telegramBot.telegram_bot.interactions.IInterraction;
-import com.william.telegramBot.telegram_bot.interactions.IInterractionContext;
+import com.william.telegramBot.telegram_bot.interactions.IInteraction;
+import com.william.telegramBot.telegram_bot.interactions.IInteractionContext;
 import com.william.telegramBot.telegram_bot.dto.MessageEntityDto;
 import com.william.telegramBot.telegram_bot.dto.UpdateDTO;
 
 import java.util.List;
 
-public class CommandsContext implements IInterractionContext<IInterraction<CommandsContext>> {
+public class CommandsContext implements IInteractionContext<IInteraction<CommandsContext>> {
     private final UpdateDTO update;
-    private final IInterraction<CommandsContext> interaction;
+    private final IInteraction<CommandsContext> interaction;
 
-    public CommandsContext(UpdateDTO update, IInterraction<CommandsContext> interaction) {
+    public CommandsContext(UpdateDTO update, IInteraction<CommandsContext> interaction) {
         this.update = update;
         this.interaction = interaction;
     }
@@ -22,7 +22,7 @@ public class CommandsContext implements IInterractionContext<IInterraction<Comma
     }
 
    @Override
-    public IInterraction<CommandsContext> interraction() {
+    public IInteraction<CommandsContext> interraction() {
         return this.interaction;
     }
 

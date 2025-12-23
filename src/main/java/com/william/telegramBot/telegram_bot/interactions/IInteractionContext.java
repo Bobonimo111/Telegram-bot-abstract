@@ -5,7 +5,7 @@ import com.william.telegramBot.telegram_bot.dto.UpdateDTO;
 
 import java.util.List;
 
-public interface IInterractionContext<T> {
+public interface IInteractionContext<T> {
     public UpdateDTO update() ;
 
     public Long chatId() ;

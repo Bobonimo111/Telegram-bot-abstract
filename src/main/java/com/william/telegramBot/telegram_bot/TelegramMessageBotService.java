@@ -12,17 +12,19 @@ public class TelegramMessageBotService {
 
     private final InteractionControllerFactory interactionControllerFactory;
     private final InteractionExceptionHandler interactionExceptionHandler;
+    private final TelegramClientService telegramClientService;
 
-    public TelegramMessageBotService(InteractionControllerFactory interactionControllerFactory, InteractionExceptionHandler interactionExceptionHandler) {
+    public TelegramMessageBotService(InteractionControllerFactory interactionControllerFactory, InteractionExceptionHandler interactionExceptionHandler, TelegramClientService telegramClientService) {
         this.interactionControllerFactory = interactionControllerFactory;
         this.interactionExceptionHandler = interactionExceptionHandler;
+        this.telegramClientService = telegramClientService;
     }
 
     //Resposavel por direcionar e executar o factory de criação
     public void controller(UpdateDTO update){
         IInteractionController InteractionController = interactionControllerFactory.getCommandController(update);
         try{
-            if (InteractionController != null) InteractionController.execute(update);
+            if (InteractionController != null) this.telegramClientService.sendMessage(InteractionController.execute(update));
         }catch (InteractionException interactionException){
             this.interactionExceptionHandler.handle(interactionException,interactionException.getChatId());
         }
